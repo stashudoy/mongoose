@@ -1,0 +1,87 @@
+Настройка Express + nodemon + TypeScript + Jest + Validator + Bcrypt + Mongo
+==============================================================================
+npm install --global yarn  //npm нужна только чтоб yarn поставить :) 
+
+yarn -v
+
+yarn init --yes     // инициализация папки для создания файла packege.json
+
+yarn add express  // появится папка node_modules   // можно было вручную добавить вписав этот пакет в файл packege.json
+
+yarn add nodemon -D  // dev-dependences - библиотеки которые нужны только в момент разработки development
+
+yarn add typescript ts-node @types/express @types/node -D
+
+yarn tsc -v
+
+yarn tsc --init
+
+yarn tsc --init
+
+В появившемся файле tsconfig.json:  "outDir": "./dist"  // чтоб все скомпилированные файлы были в папке dist
+
+index.ts move to src  // в папку с источником
+
+yarn tsc  // yarn все что найдешь скомпилируй и появится папка dist
+
+ Две команды
+ -------------
+ 1.) Мы компилируем: yarn tsc -w // watcher
+ 2.) yarn nodemon ./dist/index.js  // перезапускаем приложение
+
+
+ Пишем alias(псевдоним) - скрипт
+ -------------------------------
+ "scripts":{
+    "watch":"tsc -w",
+    "dev":"nodemon ./dist/index.js"
+  },
+
+
+DEPLOY
+=======
+
+    "build":"tsc",
+    "start":"node dist/index.js"
+
+
+JEST FOR TEST
+==========
+
+yarn add jest ts-jest @types/jest
+
+yarn add supertest @types/supertest
+
+yarn ts-jest config:init  // говорим типа библиотека ts-jest сгенерируй config
+
+package.json => script =>  "test": "jest"
+
+
+Для проверки валидации, нужно установить bodyParser:
+-------------------------------------------------------
+yarn add express-validator
+
+
+Для работы с паролями
+-----------------------
+
+yarn add bcrypt
+yarn add @types/bcrypt
+
+Для работы с JWT
+-----------------
+yarn add jsonwebtoken 
+
+yarn add @types/jsonwebtoken 
+
+
+Для mongoDB
+-----------
+yarn add mongodb 
+
+FINISH
+======
+******
+
+
+
