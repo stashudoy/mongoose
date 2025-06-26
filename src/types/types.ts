@@ -1,8 +1,10 @@
-import {ObjectId, WithId} from 'mongodb'
+import {WithId} from 'mongodb'   // Тип таблицы users в БД
 
 export type UserDBType = WithId<{
     
-    userName: string
+    login: string
     email: string
+    passwordHash: string
+    passwordSalt: string
     addedAt: Date
 }>

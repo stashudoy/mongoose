@@ -14,7 +14,7 @@ export const usersRepository = {
     
         async createUser(user: UserDBType): Promise<UserDBType> {
             const res = usersCollection.insertOne(user)
-            return res
+            return user
         },
             
     
@@ -25,6 +25,10 @@ export const usersRepository = {
     
         async updateUser(id: ObjectId, userName: string, email: string ): Promise<boolean> {
             return true
-        }
+        }, 
 
+        async findByLogin(login: string): Promise<UserDBType | null> {
+            const user = await usersCollection.findOne({login: login})  // findOne({$or: [{email: loginOrEmail}, {login: loginOrEmail},  ]})
+            return user
+        }
 }

@@ -5,11 +5,12 @@ import {Request, Response, Router} from 'express'
 
 
 
+
 export const usersRouter = Router({})
 
 usersRouter.post('/',
-    async (req: Request<{},{},{userName: string, email: string}>, res: Response) => {
-        const user = await usersService.createUser(req.body.userName, req.body.email)
+    async (req: Request<{},{},{login: string, email: string, password: string}>, res: Response) => {
+        const user = await usersService.createUser(req.body.login, req.body.email, req.body.password)
         res.status(201).send(user)
     })
 

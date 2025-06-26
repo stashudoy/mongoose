@@ -1,6 +1,7 @@
 import express, {Request, Response} from 'express'
 import {runDB} from './repositories/db'
 import { usersRouter } from './routes/users-router'
+import { authRouter } from './routes/auth-router'
 
 const app = express() 
 app.use(express.json())
@@ -8,6 +9,8 @@ app.use(express.json())
 const port = process.env.PORT || 5000
 
 app.use('/users', usersRouter)
+
+app.use('/login', authRouter)
 
 app.get('/', (req: Request, res: Response) => {
     res.send('hello, tester!')
